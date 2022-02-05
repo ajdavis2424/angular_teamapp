@@ -2,18 +2,28 @@
   <div>
     <h1>Team Generator</h1>
     <ul class="list">
-      <li>Ron Burgandy</li>
+      <!-- <li>Ron Burgandy</li>
       <li>Sam Rothstein</li>
-      <li>Billy Bats</li>
+      <li>Billy Bats</li> -->
+        <!-- STRUCTURAL DIRECTIVE FOR LI's --- iterate over members string-- 
+          store specific member in this member variable and generate an LI tag-->
+        <li *ngFor="let member of members">{{ member }}</li>
     </ul>
     
     <div class="add-members-container">
-      <input type="text" placeholder="Name" />
-      <button>Add</button>
+      <!-- Input EVENT HANDLING (input) AND #addmemberInput syntax -->
+      <input #addMemberInput 
+      type="text" 
+      placeholder="Name" 
+      (input)="onInput(addMemberInput.value)" />
+
+      <!-- EVENT HANDLING -->
+      <button (click)="addMember()">Add</button>
     </div>
     
     <div class=input-container>
       <input type="text" placeholder="# of teams" />
+      <!-- EVENT HANDLING -->
       <button>Generate</button>
     </div>
   </div>
