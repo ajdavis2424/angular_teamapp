@@ -1,0 +1,7 @@
+<div class = "team-container">
+    <h3>{{ index +1 }}</h3>
+    <ul>
+      <!-- Pipe allow us to transform data (titlecase pipe) -->
+        <li *ngFor= "let member of team" >{{ member | titlecase }}</li>
+    </ul>
+  </div>

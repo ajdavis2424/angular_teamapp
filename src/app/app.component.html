@@ -15,10 +15,10 @@
       <input #addMemberInput 
       type="text" 
       placeholder="Name" 
-      (input)="onInput(addMemberInput.value)" />
-      <!-- Attribute Dirctive -->
+      (input)="onInput(addMemberInput.value)"
+      
       [value]="newMemberName"
-
+        />
       <!-- EVENT HANDLING -->
       <button (click)="addMember()">Add</button>
     </div>
@@ -37,5 +37,14 @@
     </div>
     <!-- Error Message text-- Structutal directive w/*ngIf -->
     <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+  </div>
+  
+  <!-- Teams container houses all teams-- team container houses a single team -->
+  <div *ngIf= "teams.length" class="teams-container">
+    <app-team *ngFor = "let team of teams; let i=index" 
+    [team]="team" 
+    [index]="i"
+    >
+    </app-team>
   </div>
 </div>
