@@ -16,15 +16,26 @@
       type="text" 
       placeholder="Name" 
       (input)="onInput(addMemberInput.value)" />
+      <!-- Attribute Dirctive -->
+      [value]="newMemberName"
 
       <!-- EVENT HANDLING -->
       <button (click)="addMember()">Add</button>
     </div>
     
-    <div class=input-container>
-      <input type="text" placeholder="# of teams" />
+    <div class="input-container">
+      <input 
+      #numberOfTeamsInput
+      type="number" 
+      placeholder="# of teams"  
+      (input)="onNumberOfTeamsInput(numberOfTeamsInput.value)"
+      [value]="numberOfTeams"
+      />
+      
       <!-- EVENT HANDLING -->
-      <button>Generate</button>
+      <button (click)="generateTeams()">Generate</button>
     </div>
+    <!-- Error Message text-- Structutal directive w/*ngIf -->
+    <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
   </div>
 </div>
